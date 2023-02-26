@@ -26,7 +26,7 @@ cd -; }
 
 wget 'https://iterm2.com/downloads/stable/iTerm2-3_4_19.zip'
 unzip iTerm2-3_4_19.zip
-mv iTerm2.app Applications/
+mv iTerm.app Applications/
 
 echo "check Terminal, iTerm2 font settings"
 
