@@ -24,6 +24,10 @@ wget 'https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20
 wget 'https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold%20Italic.ttf'
 cd -; }
 
+wget 'https://iterm2.com/downloads/stable/iTerm2-3_4_19.zip'
+unzip iTerm2-3_4_19.zip
+mv iTerm2.app Applications/
+
 echo "check Terminal, iTerm2 font settings"
 
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
