@@ -25,3 +25,5 @@ mv iTerm.app $HOME/Applications/
 echo "check Terminal, iTerm2 font settings"
 
 mv .zshrc.pre-oh-my-zsh .zshrc
+
+say "Mission accomplished"
