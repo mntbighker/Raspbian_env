@@ -12,3 +12,5 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:
 cd MacPorts-2.8.1
 ./configure --prefix=$HOME/local --with-install-user=$USER --with-install-group=staff --without-startupitems
 make && make install
+
+say "Mission accomplished"
