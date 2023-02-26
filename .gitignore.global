@@ -1,0 +1,49 @@
+# vim docs from bundles and whatnots
+doc/tags
+tags
+.tags
+.env
+.classpath
+*.add.spl
+
+# sublime dreck
+*sublime*
+
+# Compiled source
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+*.zwc
+
+# Packages
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+# Logs and databases
+*.log
+*.sqlite
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Icon?
+ehthumbs.db
+Thumbs.db
+
+# VS Code
+.vscode
+
+# Rails/work stuff
+spec/fixtures/vcr_cassettes

@@ -1,0 +1,142 @@
+# vim: set ts=4 sw=4 tw=4 noet
+
+[user]
+	name = Mark Moorcroft
+	email = mntbighker@gmail.com
+	signingkey = ???
+[core]
+	preloadindex = true
+	excludesfile = ~/.gitignore.global
+	trustctime = false
+	pager = delta
+	commitGraph = true
+[interactive]
+	diffFilter = delta --color-only
+[delta]
+	navigate = true  # use n and N to move between diff sections
+	line-numbers = true
+	features = decorations
+	syntax-theme = Nord
+[delta "interactive"]
+	keep-plus-minus-markers = false
+[delta "decorations"]
+	; commit-decoration-style = blue ol
+	; commit-style = raw
+	; file-decoration-style = ol ul
+	file-style = omit
+	hunk-header-decoration-style = ul
+	hunk-header-file-style = blue italic
+	hunk-header-line-number-style = green bold italic
+	hunk-header-style = file line-number syntax ul
+[merge]
+	conflictstyle = diff3
+[diff]
+	indentHeuristic = true
+	algorithm = histogram
+	tool = vimdiff
+	colorMoved = default
+[log]
+	date = local
+[rerere]
+	enabled = true
+[pager]
+	color = true
+[status]
+	color = true
+	submodulesummary = true
+[alias]
+	st = status
+	ci = commit -av
+	c = commit -av
+	co = checkout
+	lg = log --pretty=format:'%C(yellow)%h%C(reset) %s %C(cyan)%cI%C(reset) %C(blue)%an%C(reset) %C(green)%d%C(reset)' --graph
+	review = log --summary --patch --stat=100 --dirstat --ignore-all-space --reverse --decorate --find-renames=33 --find-copies-harder --cc
+	ignored = ls-files --others -i --exclude-standard
+	st = status -sb
+	standup = !git log --since yesterday --author `git config user.email` --pretty=short
+	up = pull --ff-only --all -p
+	praise = blame
+	who = blame
+	whose-line-is-it-anyway = blame
+	supdate = submodule update --init --rebase
+	supgrade = submodule update --init --remote --rebase
+	push = push --atomic
+[push]
+	default = current
+	recurseSubmodules = on-demand
+	followTags = true
+[status]
+	submodulesummary = true
+	showUntrackedFiles = all
+[commit]
+	# template = ~/.gitcommittemplate
+	gpgsign = false
+	verbose = true
+[http]
+	sslVerify = true
+[branch]
+	autosetuprebase = always
+[help]
+	autocorrect = 1
+[filter "media"]
+	clean = git-media-clean %f
+	smudge = git-media-smudge %f
+[remote "origin"]
+	fetch = +refs/pull/*/head:refs/remotes/origin/pull/*
+[receive]
+	fsckObjects = true
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[tig]
+	show-changes = true
+	tab-size = 8
+	mouse = true
+[init]
+	templatedir = ~/.git-templates
+	defaultBranch = main
+[rebase]
+	autoStash = true
+[pull]
+	rebase = true
+	recurseSubmodules = on-demand
+[fetch]
+	prune = true
+	pruneTags = true
+	output = full
+[mergetool]
+	prompt = false
+[color]
+	ui = auto
+[color "diff"]
+	meta = yellow bold
+	commit = green bold
+	frag = magenta bold
+	old = red bold
+	new = green bold
+	whitespace = red reverse
+[color "diff-highlight"]
+	oldNormal = red bold
+	oldHighlight = red bold 52
+	newNormal = green bold
+	newHighlight = green bold 22
+[color "branch"]
+	current = yellow reverse
+	local = yellow
+	remote = green
+[color "status"]
+	added = yellow
+	changed = green
+	untracked = cyan
+
+# allow uncommitted configuration to override above (needs to be
+# second-to-last)
+[include]
+	path = .gitconfig.local
+
+# allow home-repository-specific configuration to override above (needs
+# to be last) (requires >= v2.13)
+[includeIf "gitdir:~/.home.git"]
+	path = .gitconfig.home
