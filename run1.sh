@@ -1,5 +1,6 @@
-#!/bin/bash
-# https://github.com/emilyst/home
+#!/bin/zsh
+
+open https://github.com/emilyst/home
 
 cd $HOME
 curl -O https://distfiles.macports.org/MacPorts/MacPorts-2.8.1.tar.bz2
