@@ -86,7 +86,7 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-export MANPATH="$HOME/local/share/man:/usr/local/man:$MANPATH"
+# export MANPATH="$HOME/local/share/man:/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
@@ -99,7 +99,7 @@ else
 fi
 
 # Compilation flags
-export ARCHFLAGS="-arch arm64"
+# export ARCHFLAGS="-arch arm64"
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
@@ -110,10 +110,5 @@ export ARCHFLAGS="-arch arm64"
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-alias home="git --work-tree=$HOME --git-dir=$HOME/.home.git"
-PATH=$HOME/bin:$HOME/local/bin:$HOME/local/sbin:$PATH
-export PATH
-
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
