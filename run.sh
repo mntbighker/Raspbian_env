@@ -2,7 +2,7 @@
 
 sudo dnf -y install neovim python39 luarocks zsh
 
-tmux set-option -g default-shell /bin/zsh
+tmux set-option -g default-shell /usr/bin/zsh
 
 cd ~/
 sh ./install.sh
