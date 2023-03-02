@@ -2,7 +2,7 @@
 
 sudo dnf -y install neovim python39 luarocks zsh
 
-chsh -s /bin/zsh $USER
+tmux set-option -g default-shell /bin/zsh
 
 cd ~/
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
