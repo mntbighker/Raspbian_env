@@ -1,6 +1,9 @@
 #!/bin/sh
 
-sudo dnf -y install neovim python39 luarocks zsh npm
+if [ $USER = "root" ]; then
+  sudo dnf -y install neovim python39 luarocks zsh npm
+  exit
+fi
 
 cd ~/
 rm -rf .config
