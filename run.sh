@@ -10,6 +10,7 @@ rm -rf .config
 mv Linux_env/.config .
 mv Linux_env/.tmux.conf .
 mv Linux_env/install.sh .
+echo "### type exit after the ohmyzsh script finishes, to complete setup ###"
 sh ./install.sh
 rm ./install.sh
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
