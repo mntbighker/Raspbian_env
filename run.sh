@@ -7,7 +7,6 @@ fi
 
 if ! [ -f /usr/bin/nvim ]; then
   sudo dnf -y install neovim python39 luarocks zsh npm tmux
-  exit
 fi
 
 cd $HOME
