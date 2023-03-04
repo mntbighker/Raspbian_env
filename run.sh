@@ -1,7 +1,7 @@
 #!/bin/sh
 
 if ! [ -f $HOME/Linux_env/.tmux.conf ]; then
-  echo "Please git clone into $HOME before running run.sh\n"
+  echo -e "Please git clone into $HOME before running run.sh\n"
   exit
 fi
 
@@ -15,7 +15,7 @@ rm -rf .config
 mv Linux_env/.config .
 mv Linux_env/.tmux.conf .
 mv Linux_env/install.sh .
-echo "### Type exit after the oh-my-zsh install script finishes, to complete setup ###\n"
+echo -e "### Type exit after the oh-my-zsh install script finishes, to complete setup ###\n"
 sh ./install.sh && rm ./install.sh
 git clone "https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions"
 git clone "https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting"
