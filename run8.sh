@@ -6,6 +6,11 @@ if ! [ -f $HOME/Linux_env/.tmux.conf ]; then
 fi
 
 if ! [ -f /usr/bin/nvim ]; then
+  sudo dnf -y module reset ruby
+  sudo dnf -y module reset nodejs
+  sudo dnf -y module enable ruby:2.6
+  sudo dnf -y module enable nodejs:18
+  sudo dnf -y remove ruby*
   sudo dnf -y config-manager --set-enabled ol8_appstream
   sudo dnf -y install epel-release-el8
   sudo dnf -y group install "Development Tools"
