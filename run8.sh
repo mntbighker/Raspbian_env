@@ -6,7 +6,10 @@ if ! [ -f $HOME/Linux_env/.tmux.conf ]; then
 fi
 
 if ! [ -f /usr/bin/nvim ]; then
-  sudo dnf -y install neovim python39 luarocks zsh npm tmux
+  sudo dnf -y config-manager --set-enabled ol8_appstream
+  sudo dnf -y install epel-release-el8
+  sudo dnf -y group install "Development Tools"
+  sudo dnf -y install neovim python39 ruby ruby-devel rubygems luarocks zsh npm nodejs cargo cmake tmux wget
 fi
 
 cd $HOME
@@ -14,6 +17,8 @@ rm -rf .config
 mv Linux_env/.config .
 mv Linux_env/.tmux.conf .
 mv Linux_env/install.sh .
+gem install colorls
+cargo install tree-sitter-cli rust_fzf
 echo -e "### Type exit after the oh-my-zsh install script finishes, to complete setup ###\n"
 sh ./install.sh && rm ./install.sh
 git clone "https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions"
