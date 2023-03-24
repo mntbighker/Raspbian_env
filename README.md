@@ -1,2 +1,2 @@
 # Linux_env
-Linux Environment
+Linux ZSH Environment, and Neovim installation
