@@ -1,5 +1,3 @@
-#!/bin/sh
-
 #!/bin/bash
 
 ## git clone http://github.com/mntbighker/Raspbian_env
