@@ -38,5 +38,6 @@ git clone https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-~/.oh-my-zs
 
 rm ./.zshrc
 mv $CLONE_DIR/.zshrc .
+mv $CLONE_DIR/.bashrc .
 
 rm -rf $CLONE_DIR
