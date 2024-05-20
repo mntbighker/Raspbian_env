@@ -7,7 +7,7 @@ if [ $USER = "root" ]; then
   exit
 fi
 
-export $CLONE_DIR='Raspbian_env'
+export CLONE_DIR='Raspbian_env'
 
 sudo sed -i -e 's/^CONF_SWAPSIZE=100/CONF_SWAPSIZE=900/' /etc/dphys-swapfile
 sudo dphys-swapfile setup
