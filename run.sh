@@ -15,7 +15,7 @@ sudo systemctl restart dphys-swapfile
 sudo sed -i -e 's/^arm_boost=1/# arm_boost=1/' /boot/firmware/config.txt
 
 sudo apt -y install luarocks zsh npm tmux wget cmake ninja-build gettext # for neovim
-rm -rf /var/lib/apt/lists/*
+sudo rm -rf /var/lib/apt/lists/*
 
 ## build neovim
 cd $HOME
