@@ -1,2 +1,2 @@
-# Linux_env
-Linux ZSH Environment, and Neovim installation
+# Raspbian_env
+Raspbian ZSH Environment, and Neovim installation
