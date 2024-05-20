@@ -25,6 +25,7 @@ make CMAKE_BUILD_TYPE=RelWithDebInfo
 sudo make install
 
 ## Install oh_my_zsh
+sudo apt -y install tmux
 cd $HOME
 rm -rf .config
 mv $CLONE_DIR/.config .
