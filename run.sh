@@ -19,9 +19,10 @@ sudo rm -rf /var/lib/apt/lists/*
 
 ## build neovim
 cd $HOME
-git clone --branch v0.9.0 https://github.com/neovim/neovim
+git clone https://github.com/neovim/neovim
 cd neovim
-make CMAKE_BUILD_TYPE=RelWithDebInfo
+git checkout stable
+make CMAKE_BUILD_TYPE=Release
 sudo make install
 
 ## Install oh_my_zsh
