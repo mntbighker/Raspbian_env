@@ -43,7 +43,11 @@ mv $CLONE_DIR/.bashrc .
 
 rm -rf $CLONE_DIR
 
-apt install fzf
+wget https://github.com/junegunn/fzf/releases/download/0.53.0/fzf-0.53.0-linux_arm64.tar.gz
+tar xzf fzf-0.53.0-linux_arm64.tar.gz
+mv fzf ~/.local/bin/
+rm fzf-0.53.0-linux_arm64.tar.gz
+
 cat << 'EOF' >> ~/.zshrc
 
 # ---- FZF -----
