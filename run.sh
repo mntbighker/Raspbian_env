@@ -52,12 +52,16 @@ cat << 'EOF' >> ~/.zshrc
 
 # ---- FZF -----
 # Set up fzf key bindings and fuzzy completion
-eval "$(fzf)"
+eval "$(fzf --zsh)"
 
 EOF
 source ~/.zshrc
 
-sudo npm install -g fd-find
+wget https://github.com/sharkdp/fd/releases/download/v10.1.0/fd-v10.1.0-arm-unknown-linux-musleabihf.tar.gz
+tar xzf fd-v10.1.0-arm-unknown-linux-musleabihf.tar.gz
+mv fd-v10.1.0-arm-unknown-linux-musleabihf/fd ~/.local/bin/
+rm -rf fd-*
+
 cat << 'EOF' >> ~/.zshrc
 
 # -- Use fd instead of fzf --
@@ -94,4 +98,3 @@ cyan="#2CF9ED"
 export FZF_DEFAULT_OPTS="--color=fg:${fg},bg:${bg},hl:${purple},fg+:${fg},bg+:${bg_highlight},hl+:${purple},info:${blue},prompt:${cyan},pointer:${cyan},marker:${cyan},spinner:${cyan},header:${cyan}"
 
 EOF
-source ~/.zshrc
