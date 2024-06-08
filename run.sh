@@ -57,7 +57,7 @@ eval "$(fzf)"
 EOF
 source ~/.zshrc
 
-apt install fd-find
+sudo npm install -g fd-find
 cat << 'EOF' >> ~/.zshrc
 
 # -- Use fd instead of fzf --
