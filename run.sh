@@ -98,3 +98,10 @@ cyan="#2CF9ED"
 export FZF_DEFAULT_OPTS="--color=fg:${fg},bg:${bg},hl:${purple},fg+:${fg},bg+:${bg_highlight},hl+:${purple},info:${blue},prompt:${cyan},pointer:${cyan},marker:${cyan},spinner:${cyan},header:${cyan}"
 
 EOF
+
+curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | sh
+# https://github.com/nanotee/zoxide
+cat << 'EOF' >> ~/.zshrc
+
+eval "$(zoxide init zsh --cmd cd)"
+EOF
