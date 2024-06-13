@@ -24,10 +24,11 @@ cd neovim
 git checkout stable
 make CMAKE_BUILD_TYPE=Release
 sudo make install
+cd $HOME
+rm -rf neovim
 
 ## Install oh_my_zsh
 sudo apt -y install tmux
-cd $HOME
 rm -rf .config
 mv $CLONE_DIR/.config .
 mv $CLONE_DIR/.tmux.conf .
@@ -55,7 +56,6 @@ cat << 'EOF' >> ~/.zshrc
 eval "$(fzf --zsh)"
 
 EOF
-source ~/.zshrc
 
 wget https://github.com/sharkdp/fd/releases/download/v10.1.0/fd-v10.1.0-arm-unknown-linux-musleabihf.tar.gz
 tar xzf fd-v10.1.0-arm-unknown-linux-musleabihf.tar.gz
@@ -83,7 +83,6 @@ _fzf_compgen_dir() {
 }
 
 EOF
-source ~/.zshrc
 
 cat << 'EOF' >> ~/.zshrc
 
