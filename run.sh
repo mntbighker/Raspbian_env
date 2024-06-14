@@ -17,6 +17,12 @@ sudo sed -i -e 's/^arm_boost=1/# arm_boost=1/' /boot/firmware/config.txt
 sudo apt -y install luarocks zsh npm wget cmake ninja-build gettext # for neovim
 sudo rm -rf /var/lib/apt/lists/*
 
+wget -c https://github.com/eza-community/eza/releases/latest/download/eza_aarch64-unknown-linux-gnu.tar.gz -O - | tar xz
+mkdir -p $HOME/.local/bin
+mv eza ~/.local/bin/
+rm -f ~/.zcompdump*; compinit
+git clone https://github.com/eza-community/eza.git $HOME/.local/eza/
+
 ## build neovim
 cd $HOME
 git clone https://github.com/neovim/neovim
@@ -103,4 +109,8 @@ curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh 
 cat << 'EOF' >> ~/.zshrc
 
 eval "$(zoxide init zsh --cmd cd)"
+EOF
+
+cat << 'EOF' >> $HOME/.zshrc
+alias ls='eza'
 EOF
