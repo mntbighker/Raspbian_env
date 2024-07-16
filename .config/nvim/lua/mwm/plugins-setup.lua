@@ -107,6 +107,14 @@ return packer.startup(function(use)
   -- git integration
   use("lewis6991/gitsigns.nvim") -- show line modifications on left hand side
 
+    -- LazyGit
+  use({"kdheepak/lazygit.nvim",
+    -- optional for floating window border decoration
+    requires = {
+        "nvim-lua/plenary.nvim",
+    },
+  })
+
   -- fzf
   use { "ibhagwan/fzf-lua",
   -- optional for icon support
