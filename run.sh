@@ -114,3 +114,9 @@ EOF
 cat << 'EOF' >> $HOME/.zshrc
 alias ls='eza'
 EOF
+
+wget https://github.com/jesseduffield/lazygit/releases/download/v0.43.1/lazygit_0.43.1_Linux_arm64.tar.gz
+cd $HOME/.local/bin
+tar xzf $HOME/lazygit_0.43.1_Linux_arm64.tar.gz
+rm README LICENCE
+cd $HOME; rm lazygit_0.43.1_Linux_arm64.tar.gz
