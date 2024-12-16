@@ -14,7 +14,7 @@ sudo dphys-swapfile setup
 sudo systemctl restart dphys-swapfile
 sudo sed -i -e 's/^arm_boost=1/# arm_boost=1/' /boot/firmware/config.txt
 
-sudo apt -y install luarocks zsh npm wget cmake ninja-build gettext # for neovim
+sudo apt -y install luarocks zsh npm wget cmake ninja-build gettext glances btop zsh-theme-powerlevel9k # for neovim
 sudo rm -rf /var/lib/apt/lists/*
 
 wget -c https://github.com/eza-community/eza/releases/latest/download/eza_aarch64-unknown-linux-gnu.tar.gz -O - | tar xz
