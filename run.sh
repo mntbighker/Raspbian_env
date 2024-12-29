@@ -120,3 +120,25 @@ cd $HOME/.local/bin
 tar xzf $HOME/lazygit_0.43.1_Linux_arm64.tar.gz
 rm README LICENCE
 cd $HOME; rm lazygit_0.43.1_Linux_arm64.tar.gz
+
+# https://github.com/sxyazi/yazi
+wget https://github.com/sxyazi/yazi/releases/download/v0.4.2/yazi-aarch64-unknown-linux-gnu.zip
+unzip yazi-aarch64-unknown-linux-gnu.zip
+mv yazi-aarch64-unknown-linux-gnu/ya* ~/.local/bin
+mkdir ~/.local/yazi
+mv yazi-aarch64-unknown-linux-gnu/completions ~/.local/yazi
+rm -rf yazi-aarch64-unknown-linux-gnu
+
+cat << 'EOF' >> ~/.zshrc
+
+function y() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+	yazi "$@" --cwd-file="$tmp"
+	if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+		builtin cd -- "$cwd"
+	fi
+	rm -f -- "$tmp"
+}
+export FPATH="$HOME/.local/yazi/completions:$FPATH"
+autoload -U compinit && compinit
+EOF
