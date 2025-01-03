@@ -14,7 +14,14 @@ sudo dphys-swapfile setup
 sudo systemctl restart dphys-swapfile
 sudo sed -i -e 's/^arm_boost=1/# arm_boost=1/' /boot/firmware/config.txt
 
-sudo apt -y install luarocks zsh npm wget cmake ninja-build gettext glances btop zsh-theme-powerlevel9k # for neovim
+sudo apt -y install zsh npm lua lua-devel wget cmake ninja-build gettext glances btop zsh-theme-powerlevel9k # for neovim
+wget https://luarocks.org/releases/luarocks-3.11.1.tar.gz
+tar zxpf luarocks-3.11.1.tar.gz
+cd luarocks-3.11.1
+./configure && make && sudo make install
+cd ../
+rm -rf luarocks*
+
 sudo rm -rf /var/lib/apt/lists/*
 
 wget -c https://github.com/eza-community/eza/releases/latest/download/eza_aarch64-unknown-linux-gnu.tar.gz -O - | tar xz
