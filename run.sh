@@ -7,6 +7,17 @@ if [ $USER = "root" ]; then
   exit
 fi
 
+if ! [ -f /usr/bin/zsh ]; then
+  sudo dnf -y install zsh
+  exit
+fi
+
+if ! [ `env | grep "SHELL" | grep zsh` ]; then
+  sudo usermod -s /usr/bin/zsh $USER
+  echo -e "Log out to swict to zsh\n"
+  exit
+fi
+
 export CLONE_DIR='Raspbian_env'
 
 sudo sed -i -e 's/^CONF_SWAPSIZE=100/CONF_SWAPSIZE=900/' /etc/dphys-swapfile
