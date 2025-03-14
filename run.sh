@@ -80,7 +80,7 @@ eval "$(fzf --zsh)"
 
 EOF
 
-wget https://github.com/sharkdp/fd/releases/download/v10.1.0/fd-v10.2.0-arm-unknown-linux-musleabihf.tar.gz
+wget https://github.com/sharkdp/fd/releases/download/v10.2.0/fd-v10.2.0-arm-unknown-linux-musleabihf.tar.gz
 tar xzf fd-v10.2.0-arm-unknown-linux-musleabihf.tar.gz
 mv fd-v10.2.0-arm-unknown-linux-musleabihf/fd ~/.local/bin/
 rm -rf fd-*
@@ -135,7 +135,6 @@ EOF
 wget https://github.com/jesseduffield/lazygit/releases/download/v0.48.0/lazygit_0.48.0_Linux_arm64.tar.gz
 cd $HOME/.local/bin
 tar xzf $HOME/lazygit_0.48.0_Linux_arm64.tar.gz
-rm README LICENCE
 cd $HOME; rm lazygit_0.48.0_Linux_arm64.tar.gz
 
 # https://github.com/sxyazi/yazi
