@@ -26,9 +26,9 @@ sudo systemctl restart dphys-swapfile
 sudo sed -i -e 's/^arm_boost=1/# arm_boost=1/' /boot/firmware/config.txt
 
 sudo apt -y install zsh npm lua lua-devel wget cmake ninja-build gettext glances btop zsh-theme-powerlevel9k # for neovim
-wget https://luarocks.org/releases/luarocks-3.11.1.tar.gz
-tar zxpf luarocks-3.11.1.tar.gz
-cd luarocks-3.11.1
+wget https://luarocks.org/releases/luarocks-3.12.2.tar.gz
+tar zxpf luarocks-3.12.2.tar.gz
+cd luarocks-3.12.2
 ./configure && make && sudo make install
 cd ../
 rm -rf luarocks*
@@ -67,10 +67,10 @@ mv $CLONE_DIR/.zshrc .
 
 rm -rf $CLONE_DIR
 
-wget https://github.com/junegunn/fzf/releases/download/v0.60.3/fzf-0.60.3-linux_arm64.tar.gz
-tar xzf fzf-0.60.3-linux_arm64.tar.gz
+wget https://github.com/junegunn/fzf/releases/download/v0.64.0/fzf-0.64.0-linux_arm64.tar.gz
+tar xzf fzf-0.64.0-linux_arm64.tar.gz
 mv fzf ~/.local/bin/
-rm fzf-0.60.3-linux_arm64.tar.gz
+rm fzf-0.64.0-linux_arm64.tar.gz
 
 cat << 'EOF' >> ~/.zshrc
 
