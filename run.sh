@@ -50,11 +50,13 @@ make CMAKE_BUILD_TYPE=Release
 sudo make install
 cd $HOME
 rm -rf neovim
+cd .config
+git clone https://github.com/radleylewis/nvim.git
+cd $HOME
+sudo dnf -y install ripgrep efm-langserver
 exit
 ## Install oh_my_zsh
 sudo apt -y install tmux
-rm -rf .config
-mv $CLONE_DIR/.config .
 mv $CLONE_DIR/.tmux.conf .
 echo -e "### Type exit after the oh-my-zsh install script finishes, to complete setup ###\n"
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
