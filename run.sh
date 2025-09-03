@@ -52,6 +52,14 @@ cd $HOME
 rm -rf neovim
 cd .config
 git clone https://github.com/radleylewis/nvim.git
+cat << 'EOF' > nvim/lua/plugins/suda-vim.lua
+return {
+	"lewis6991/gitsigns.nvim",
+}
+EOF
+cat << 'EOF' >> nvim/.gitignore
+lua/plugins/suda-vim.lua
+EOF
 cd $HOME
 sudo dnf -y install ripgrep efm-langserver
 exit
