@@ -52,20 +52,10 @@ cd $HOME
 rm -rf neovim
 cd .config
 git clone https://github.com/radleylewis/nvim.git
-cat << 'EOF' > nvim/lua/plugins/suda-vim.lua
-return {
-	"lewis6991/gitsigns.nvim",
-}
-EOF
-cat << 'EOF' >> nvim/.gitignore
-lua/plugins/suda-vim.lua
-EOF
 cd $HOME
 sudo dnf -y install ripgrep efm-langserver
 exit
 ## Install oh_my_zsh
-sudo apt -y install tmux
-mv $CLONE_DIR/.tmux.conf .
 echo -e "### Type exit after the oh-my-zsh install script finishes, to complete setup ###\n"
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
@@ -77,10 +67,10 @@ mv $CLONE_DIR/.zshrc .
 
 rm -rf $CLONE_DIR
 
-wget https://github.com/junegunn/fzf/releases/download/v0.64.0/fzf-0.64.0-linux_arm64.tar.gz
-tar xzf fzf-0.64.0-linux_arm64.tar.gz
+wget https://github.com/junegunn/fzf/releases/download/v0.66.1/fzf-0.66.1-linux_arm64.tar.gz
+tar xzf fzf-0.66.1-linux_arm64.tar.gz
 mv fzf ~/.local/bin/
-rm fzf-0.64.0-linux_arm64.tar.gz
+rm fzf-0.66.1-linux_arm64.tar.gz
 
 cat << 'EOF' >> ~/.zshrc
 
@@ -90,9 +80,9 @@ eval "$(fzf --zsh)"
 
 EOF
 
-wget https://github.com/sharkdp/fd/releases/download/v10.2.0/fd-v10.2.0-arm-unknown-linux-musleabihf.tar.gz
-tar xzf fd-v10.2.0-arm-unknown-linux-musleabihf.tar.gz
-mv fd-v10.2.0-arm-unknown-linux-musleabihf/fd ~/.local/bin/
+wget https://github.com/sharkdp/fd/releases/download/v10.3.0/fd-v10.3.0-arm-unknown-linux-musleabihf.tar.gz
+tar xzf fd-v10.3.0-arm-unknown-linux-musleabihf.tar.gz
+mv fd-v10.3.0-arm-unknown-linux-musleabihf/fd ~/.local/bin/
 rm -rf fd-*
 
 cat << 'EOF' >> ~/.zshrc
@@ -142,10 +132,10 @@ cat << 'EOF' >> $HOME/.zshrc
 alias ls='eza'
 EOF
 
-wget https://github.com/jesseduffield/lazygit/releases/download/v0.48.0/lazygit_0.48.0_Linux_arm64.tar.gz
+wget https://github.com/jesseduffield/lazygit/releases/download/v0.56.0/lazygit_0.56.0_Linux_arm64.tar.gz
 cd $HOME/.local/bin
-tar xzf $HOME/lazygit_0.48.0_Linux_arm64.tar.gz
-cd $HOME; rm lazygit_0.48.0_Linux_arm64.tar.gz
+tar xzf $HOME/lazygit_0.56.0_Linux_arm64.tar.gz
+cd $HOME; rm lazygit_0.56.0_Linux_arm64.tar.gz
 
 # https://github.com/sxyazi/yazi
 wget https://github.com/sxyazi/yazi/releases/latest/download/yazi-aarch64-unknown-linux-gnu.zip
