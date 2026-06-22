@@ -8,7 +8,7 @@ if [ $USER = "root" ]; then
 fi
 
 if ! [ -f /usr/bin/zsh ]; then
-  sudo dnf -y install zsh
+  sudo apt -y install zsh
   exit
 fi
 
@@ -20,12 +20,7 @@ fi
 
 export CLONE_DIR='Raspbian_env'
 
-sudo sed -i -e 's/^CONF_SWAPSIZE=100/CONF_SWAPSIZE=900/' /etc/dphys-swapfile
-sudo dphys-swapfile setup
-sudo systemctl restart dphys-swapfile
-sudo sed -i -e 's/^arm_boost=1/# arm_boost=1/' /boot/firmware/config.txt
-
-sudo apt -y install zsh npm lua lua-devel wget cmake ninja-build gettext glances btop zsh-theme-powerlevel9k # for neovim
+sudo apt -y install npm lua liblua5.1-0-dev wget cmake ninja-build gettext glances btop zsh-theme-powerlevel9k neovim npm# for neovim
 wget https://luarocks.org/releases/luarocks-3.12.2.tar.gz
 tar zxpf luarocks-3.12.2.tar.gz
 cd luarocks-3.12.2
@@ -34,6 +29,7 @@ cd ../
 rm -rf luarocks*
 exit
 sudo rm -rf /var/lib/apt/lists/*
+apt update
 
 wget -c https://github.com/eza-community/eza/releases/latest/download/eza_aarch64-unknown-linux-gnu.tar.gz -O - | tar xz
 mkdir -p $HOME/.local/bin
@@ -41,19 +37,10 @@ mv eza ~/.local/bin/
 rm -f ~/.zcompdump*; compinit
 git clone https://github.com/eza-community/eza.git $HOME/.local/eza/
 exit
-## build neovim
-cd $HOME
-git clone https://github.com/neovim/neovim
-cd neovim
-git checkout stable
-make CMAKE_BUILD_TYPE=Release
-sudo make install
-cd $HOME
-rm -rf neovim
 cd .config
 git clone https://github.com/radleylewis/nvim.git
 cd $HOME
-sudo dnf -y install ripgrep efm-langserver
+sudo apt -y install ripgrep efm-langserver
 exit
 ## Install oh_my_zsh
 echo -e "### Type exit after the oh-my-zsh install script finishes, to complete setup ###\n"
