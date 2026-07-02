@@ -31,7 +31,11 @@ exit
 sudo rm -rf /var/lib/apt/lists/*
 sudo apt update
 
-wget -c https://github.com/eza-community/eza/releases/latest/download/eza_aarch64-unknown-linux-gnu.tar.gz -O - | tar xz
+if [ "$(uname -m)" = "aarch64" ]; then
+  wget -c https://github.com/eza-community/eza/releases/latest/download/eza_aarch64-unknown-linux-gnu.tar.gz -O - | tar xz
+else
+  wget -c https://github.com/eza-community/eza/releases/latest/download/eza_arm-unknown-linux-gnueabihf.tar.gz -O - | tar xz
+fi
 mkdir -p $HOME/.local/bin
 mv eza ~/.local/bin/
 rm -f ~/.zcompdump*
@@ -51,10 +55,17 @@ mv $CLONE_DIR/.zshrc .
 
 rm -rf $CLONE_DIR
 
-wget https://github.com/junegunn/fzf/releases/download/v0.66.1/fzf-0.73.1-linux_arm64.tar.gz
-tar xzf fzf-0.73.1-linux_arm64.tar.gz
-mv fzf ~/.local/bin/
-rm fzf-0.73.1-linux_arm64.tar.gz
+if [ "$(uname -m)" = "aarch64" ]; then
+  wget https://github.com/junegunn/fzf/releases/download/v0.66.1/fzf-0.73.1-linux_arm64.tar.gz
+  tar xzf fzf-0.73.1-linux_arm64.tar.gz
+  mv fzf ~/.local/bin/
+  rm fzf-0.73.1-linux_arm64.tar.gz
+else
+  wget https://github.com/junegunn/fzf/releases/download/v0.66.1/fzf-0.73.1-linux_armv6.tar.gz
+  tar xzf fzf-0.73.1-linux_armv6.tar.gz
+  mv fzf ~/.local/bin/
+  rm fzf-0.73.1-linux_armv6.tar.gz
+fi
 
 cat << 'EOF' >> ~/.zshrc
 
@@ -116,19 +127,29 @@ cat << 'EOF' >> $HOME/.zshrc
 alias ls='eza'
 EOF
 
-wget https://github.com/jesseduffield/lazygit/releases/download/v0.56.0/lazygit_0.62.2_Linux_arm64.tar.gz
-cd $HOME/.local/bin
-tar xzf $HOME/lazygit_0.62.2_Linux_arm64.tar.gz
-cd $HOME; rm lazygit_0.62.2_Linux_arm64.tar.gz
+if [ "$(uname -m)" = "aarch64" ]; then
+  wget https://github.com/jesseduffield/lazygit/releases/download/v0.56.0/lazygit_0.62.2_linux_arm64.tar.gz
+  cd $HOME/.local/bin
+  tar xzf $HOME/lazygit_0.62.2_linux_arm64.tar.gz
+  cd $HOME; rm lazygit_0.62.2_linux_arm64.tar.gz
+else
+  wget https://github.com/jesseduffield/lazygit/releases/download/v0.62.2/lazygit_0.62.2_linux_armv6.tar.gz
+  cd $HOME/.local/bin
+  tar xzf $HOME/lazygit_0.62.2_linux_armv6.tar.gz
+  cd $HOME; rm lazygit_0.62.2_linux_armv6.tar.gz
+fi
 
 # https://github.com/sxyazi/yazi
-wget https://github.com/sxyazi/yazi/releases/latest/download/yazi-aarch64-unknown-linux-gnu.zip
-unzip yazi-aarch64-unknown-linux-gnu.zip
-mv yazi-aarch64-unknown-linux-gnu/ya* ~/.local/bin
-mkdir ~/.local/yazi
-mv yazi-aarch64-unknown-linux-gnu/completions ~/.local/yazi
-rm -rf yazi-aarch64-unknown-linux-gnu*
+if [ "$(uname -m)" = "aarch64" ]; then
+  wget https://github.com/sxyazi/yazi/releases/latest/download/yazi-aarch64-unknown-linux-gnu.zip
+  unzip yazi-aarch64-unknown-linux-gnu.zip
+  mv yazi-aarch64-unknown-linux-gnu/ya* ~/.local/bin
+  mkdir ~/.local/yazi
+  mv yazi-aarch64-unknown-linux-gnu/completions ~/.local/yazi
+  rm -rf yazi-aarch64-unknown-linux-gnu*
+fi
 
+if [ "$(uname -m)" = "aarch64" ]; then
 cat << 'EOF' >> ~/.zshrc
 
 function y() {
@@ -142,3 +163,4 @@ function y() {
 export FPATH="$HOME/.local/yazi/completions:$FPATH"
 autoload -U compinit && compinit
 EOF
+fi
