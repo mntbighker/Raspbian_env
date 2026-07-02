@@ -34,7 +34,7 @@ sudo apt update
 wget -c https://github.com/eza-community/eza/releases/latest/download/eza_aarch64-unknown-linux-gnu.tar.gz -O - | tar xz
 mkdir -p $HOME/.local/bin
 mv eza ~/.local/bin/
-rm -f ~/.zcompdump*; compinit
+rm -f ~/.zcompdump*
 git clone https://github.com/eza-community/eza.git $HOME/.local/eza/
 cd $HOME
 sudo apt -y install ripgrep efm-langserver
