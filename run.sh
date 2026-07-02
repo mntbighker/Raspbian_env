@@ -20,10 +20,10 @@ fi
 
 export CLONE_DIR='Raspbian_env'
 
-sudo apt -y install npm lua liblua5.1-0-dev wget cmake ninja-build gettext glances btop zsh-theme-powerlevel9k neovim npm# for neovim
-wget https://luarocks.org/releases/luarocks-3.12.2.tar.gz
-tar zxpf luarocks-3.12.2.tar.gz
-cd luarocks-3.12.2
+sudo apt -y install npm lua5.4 liblua5.4-dev wget cmake ninja-build gettext glances btop zsh-theme-powerlevel9k neovim npm # for neovim
+wget https://luarocks.org/releases/luarocks-3.13.0.tar.gz
+tar zxpf luarocks-3.13.0.tar.gz
+cd luarocks-3.13.0
 ./configure && make && sudo make install
 cd ../
 rm -rf luarocks*
