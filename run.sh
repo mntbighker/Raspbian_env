@@ -36,9 +36,6 @@ mkdir -p $HOME/.local/bin
 mv eza ~/.local/bin/
 rm -f ~/.zcompdump*; compinit
 git clone https://github.com/eza-community/eza.git $HOME/.local/eza/
-exit
-cd .config
-git clone https://github.com/radleylewis/nvim.git
 cd $HOME
 sudo apt -y install ripgrep efm-langserver
 exit
