@@ -29,7 +29,7 @@ cd ../
 rm -rf luarocks*
 exit
 sudo rm -rf /var/lib/apt/lists/*
-apt update
+sudo apt update
 
 wget -c https://github.com/eza-community/eza/releases/latest/download/eza_aarch64-unknown-linux-gnu.tar.gz -O - | tar xz
 mkdir -p $HOME/.local/bin
