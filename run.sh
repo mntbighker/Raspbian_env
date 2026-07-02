@@ -56,12 +56,12 @@ mv $CLONE_DIR/.zshrc .
 rm -rf $CLONE_DIR
 
 if [ "$(uname -m)" = "aarch64" ]; then
-  wget https://github.com/junegunn/fzf/releases/download/v0.66.1/fzf-0.73.1-linux_arm64.tar.gz
+  wget https://github.com/junegunn/fzf/releases/download/v0.73.1/fzf-0.73.1-linux_arm64.tar.gz
   tar xzf fzf-0.73.1-linux_arm64.tar.gz
   mv fzf ~/.local/bin/
   rm fzf-0.73.1-linux_arm64.tar.gz
 else
-  wget https://github.com/junegunn/fzf/releases/download/v0.66.1/fzf-0.73.1-linux_armv6.tar.gz
+  wget https://github.com/junegunn/fzf/releases/download/v0.73.1/fzf-0.73.1-linux_armv6.tar.gz
   tar xzf fzf-0.73.1-linux_armv6.tar.gz
   mv fzf ~/.local/bin/
   rm fzf-0.73.1-linux_armv6.tar.gz
